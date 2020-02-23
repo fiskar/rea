@@ -14,14 +14,20 @@ function TodoList(props) {
     return(
         <ul style={stylus.ul}>
             {props.todos.map((todo, index) => {
-                return <TodoItem todo ={todo} key={todo.id} index = {index}></TodoItem>
+                return <TodoItem
+                todo ={todo}
+                key={todo.id}
+                index = {index}
+                onChange={props.onToggle}>
+                </TodoItem> 
             })}
         </ul>
     )
 }
 
 TodoList.propTypes = {
-    todos: PropTypes.arrayOf(PropTypes.object).isRequired
+    todos: PropTypes.arrayOf(PropTypes.object).isRequired,
+    onToggle: PropTypes.func.isRequired
 }
 
 export default TodoList
